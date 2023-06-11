@@ -1,2 +1,3 @@
 .docker/
 .codelike_web_docker/docker-compose.yml
+.codelike_web_docker/mysql/data/
