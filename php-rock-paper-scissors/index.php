@@ -8,7 +8,7 @@
     <?php require_once 'parts/navbar.php' ?>
     <div class="container">
       <?php if(isset($_SESSION['errors'])): ?>
-        <?php foreeach($_SESSION['errors']as $error): ?>
+        <?php foreach($_SESSION['errors']as $error): ?>
         <div class="alert alert-danger mt-3" role="alert">
           <?php echo $error; ?>
         </div>
