@@ -1,3 +1,27 @@
+<?php
+    session_start();
+
+    // 入力されたユーザー名の取得
+    $userName = isset($_POST['user_name']) ? $_POST['user_name'] : '';
+
+    // バリデーション
+    $errorMessages = [];
+    if (empty($userName)) {
+        array_push($errorMessages, "ユーザー名が空です。ユーザー名を入力してください。");
+    }
+
+    if (8 < mb_strlen($userName)) {
+        array_push($errorMessages, "ユーザー名は8文字以内で入力してください。");
+    }
+
+    if (0 < count($errorMessages)) {
+        $_SESSION["errors"] = $errorMessages;
+        header("location: index.php");
+        exit;
+    }
+
+    $_SESSION['userName'] = $userName;
+?>
 <html>
   <?php require_once 'parts/header.php' ?>
   <body>
